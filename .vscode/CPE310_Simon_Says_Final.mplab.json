@@ -6,6 +6,7 @@
             "id": "conf1",
             "device": "ATmega328PB",
             "imagePath": "./out/CPE310_Simon_Says_Final/default.elf",
+            "tool": "mEDBG",
             "packs": [
                 {
                     "name": "ATmega_DFP",

@@ -18,7 +18,8 @@ endforeach()
 set(CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_compile
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../i2c.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../lcd.c"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../../../main.c")
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../main.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../spi.c")
 set_source_files_properties(${CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_compile} PROPERTIES LANGUAGE C)
 set(CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_compile_cpp)
 set_source_files_properties(${CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_compile_cpp} PROPERTIES LANGUAGE CXX)
