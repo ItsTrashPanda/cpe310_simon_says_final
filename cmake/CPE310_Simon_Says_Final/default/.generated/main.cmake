@@ -1,0 +1,98 @@
+include("${CMAKE_CURRENT_LIST_DIR}/rule.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/file.cmake")
+
+set(CPE310_Simon_Says_Final_default_library_list )
+
+# Handle files with suffix s, for group default-AVR-GCC
+if(CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_assemble)
+add_library(CPE310_Simon_Says_Final_default_default_AVR_GCC_assemble OBJECT ${CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_assemble})
+    CPE310_Simon_Says_Final_default_default_AVR_GCC_assemble_rule(CPE310_Simon_Says_Final_default_default_AVR_GCC_assemble)
+    list(APPEND CPE310_Simon_Says_Final_default_library_list "$<TARGET_OBJECTS:CPE310_Simon_Says_Final_default_default_AVR_GCC_assemble>")
+
+endif()
+
+# Handle files with suffix S, for group default-AVR-GCC
+if(CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_assembleWithPreprocess)
+add_library(CPE310_Simon_Says_Final_default_default_AVR_GCC_assembleWithPreprocess OBJECT ${CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_assembleWithPreprocess})
+    CPE310_Simon_Says_Final_default_default_AVR_GCC_assembleWithPreprocess_rule(CPE310_Simon_Says_Final_default_default_AVR_GCC_assembleWithPreprocess)
+    list(APPEND CPE310_Simon_Says_Final_default_library_list "$<TARGET_OBJECTS:CPE310_Simon_Says_Final_default_default_AVR_GCC_assembleWithPreprocess>")
+
+endif()
+
+# Handle files with suffix [cC], for group default-AVR-GCC
+if(CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_compile)
+add_library(CPE310_Simon_Says_Final_default_default_AVR_GCC_compile OBJECT ${CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_compile})
+    CPE310_Simon_Says_Final_default_default_AVR_GCC_compile_rule(CPE310_Simon_Says_Final_default_default_AVR_GCC_compile)
+    list(APPEND CPE310_Simon_Says_Final_default_library_list "$<TARGET_OBJECTS:CPE310_Simon_Says_Final_default_default_AVR_GCC_compile>")
+
+endif()
+
+# Handle files with suffix cpp, for group default-AVR-GCC
+if(CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_compile_cpp)
+add_library(CPE310_Simon_Says_Final_default_default_AVR_GCC_compile_cpp OBJECT ${CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_compile_cpp})
+    CPE310_Simon_Says_Final_default_default_AVR_GCC_compile_cpp_rule(CPE310_Simon_Says_Final_default_default_AVR_GCC_compile_cpp)
+    list(APPEND CPE310_Simon_Says_Final_default_library_list "$<TARGET_OBJECTS:CPE310_Simon_Says_Final_default_default_AVR_GCC_compile_cpp>")
+
+endif()
+
+# Handle files with suffix elf, for group default-AVR-GCC
+if(CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_objcopy_ihex)
+add_library(CPE310_Simon_Says_Final_default_default_AVR_GCC_objcopy_ihex OBJECT ${CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_objcopy_ihex})
+    CPE310_Simon_Says_Final_default_default_AVR_GCC_objcopy_ihex_rule(CPE310_Simon_Says_Final_default_default_AVR_GCC_objcopy_ihex)
+    list(APPEND CPE310_Simon_Says_Final_default_library_list "$<TARGET_OBJECTS:CPE310_Simon_Says_Final_default_default_AVR_GCC_objcopy_ihex>")
+
+endif()
+
+# Handle files with suffix elf, for group default-AVR-GCC
+if(CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_objcopy_eep)
+add_library(CPE310_Simon_Says_Final_default_default_AVR_GCC_objcopy_eep OBJECT ${CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_objcopy_eep})
+    CPE310_Simon_Says_Final_default_default_AVR_GCC_objcopy_eep_rule(CPE310_Simon_Says_Final_default_default_AVR_GCC_objcopy_eep)
+    list(APPEND CPE310_Simon_Says_Final_default_library_list "$<TARGET_OBJECTS:CPE310_Simon_Says_Final_default_default_AVR_GCC_objcopy_eep>")
+
+endif()
+
+# Handle files with suffix elf, for group default-AVR-GCC
+if(CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_objcopy_lss)
+add_library(CPE310_Simon_Says_Final_default_default_AVR_GCC_objcopy_lss OBJECT ${CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_objcopy_lss})
+    CPE310_Simon_Says_Final_default_default_AVR_GCC_objcopy_lss_rule(CPE310_Simon_Says_Final_default_default_AVR_GCC_objcopy_lss)
+    list(APPEND CPE310_Simon_Says_Final_default_library_list "$<TARGET_OBJECTS:CPE310_Simon_Says_Final_default_default_AVR_GCC_objcopy_lss>")
+
+endif()
+
+# Handle files with suffix elf, for group default-AVR-GCC
+if(CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_objcopy_srec)
+add_library(CPE310_Simon_Says_Final_default_default_AVR_GCC_objcopy_srec OBJECT ${CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_objcopy_srec})
+    CPE310_Simon_Says_Final_default_default_AVR_GCC_objcopy_srec_rule(CPE310_Simon_Says_Final_default_default_AVR_GCC_objcopy_srec)
+    list(APPEND CPE310_Simon_Says_Final_default_library_list "$<TARGET_OBJECTS:CPE310_Simon_Says_Final_default_default_AVR_GCC_objcopy_srec>")
+
+endif()
+
+# Handle files with suffix elf, for group default-AVR-GCC
+if(CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_objcopy_sig)
+add_library(CPE310_Simon_Says_Final_default_default_AVR_GCC_objcopy_sig OBJECT ${CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_objcopy_sig})
+    CPE310_Simon_Says_Final_default_default_AVR_GCC_objcopy_sig_rule(CPE310_Simon_Says_Final_default_default_AVR_GCC_objcopy_sig)
+    list(APPEND CPE310_Simon_Says_Final_default_library_list "$<TARGET_OBJECTS:CPE310_Simon_Says_Final_default_default_AVR_GCC_objcopy_sig>")
+
+endif()
+
+
+# Main target for this project
+add_executable(CPE310_Simon_Says_Final_default_image_XThLkds9 ${CPE310_Simon_Says_Final_default_library_list})
+
+set_target_properties(CPE310_Simon_Says_Final_default_image_XThLkds9 PROPERTIES
+    OUTPUT_NAME "default"
+    SUFFIX ".elf"
+    ADDITIONAL_CLEAN_FILES "${output_extensions}"
+    RUNTIME_OUTPUT_DIRECTORY "${CPE310_Simon_Says_Final_default_output_dir}")
+target_link_libraries(CPE310_Simon_Says_Final_default_image_XThLkds9 PRIVATE ${CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_link})
+
+#Add objcopy steps
+CPE310_Simon_Says_Final_default_objcopy_ihex_rule(CPE310_Simon_Says_Final_default_image_XThLkds9)
+CPE310_Simon_Says_Final_default_objcopy_eep_rule(CPE310_Simon_Says_Final_default_image_XThLkds9)
+CPE310_Simon_Says_Final_default_objcopy_lss_rule(CPE310_Simon_Says_Final_default_image_XThLkds9)
+CPE310_Simon_Says_Final_default_objcopy_srec_rule(CPE310_Simon_Says_Final_default_image_XThLkds9)
+CPE310_Simon_Says_Final_default_objcopy_sig_rule(CPE310_Simon_Says_Final_default_image_XThLkds9)
+# Add the link options from the rule file.
+CPE310_Simon_Says_Final_default_link_rule( CPE310_Simon_Says_Final_default_image_XThLkds9)
+
+

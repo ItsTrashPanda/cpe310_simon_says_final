@@ -1,0 +1,4 @@
+C:/Users/adam/Desktop/CPE 301 Final Project/cpe310_simon_says_final/_build/CPE310_Simon_Says_Final/default/CMakeFiles/CPE310_Simon_Says_Final_default_default_AVR_GCC_compile.dir
+C:/Users/adam/Desktop/CPE 301 Final Project/cpe310_simon_says_final/_build/CPE310_Simon_Says_Final/default/CMakeFiles/CPE310_Simon_Says_Final_default_image_XThLkds9.dir
+C:/Users/adam/Desktop/CPE 301 Final Project/cpe310_simon_says_final/_build/CPE310_Simon_Says_Final/default/CMakeFiles/edit_cache.dir
+C:/Users/adam/Desktop/CPE 301 Final Project/cpe310_simon_says_final/_build/CPE310_Simon_Says_Final/default/CMakeFiles/rebuild_cache.dir
