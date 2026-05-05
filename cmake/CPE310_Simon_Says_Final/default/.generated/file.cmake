@@ -16,6 +16,7 @@ foreach(source_file ${CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_
 endforeach()
 
 set(CPE310_Simon_Says_Final_default_default_AVR_GCC_FILE_TYPE_compile
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../btn.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../i2c.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../lcd.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../main.c"

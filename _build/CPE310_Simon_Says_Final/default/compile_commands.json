@@ -1,6 +1,12 @@
 [
 {
   "directory": "C:/Users/adam/Desktop/CPE 301 Final Project/cpe310_simon_says_final/_build/CPE310_Simon_Says_Final/default",
+  "command": "C:\\Users\\adam\\.mplab\\app-finder\\apps\\avr-gcc\\v7.3.0\\avr8-gnu-toolchain-win32_x86_64\\bin\\avr-gcc.exe -D__ATmega328PB__ -Ddefault=default -IC:/Users/adam/.mchp_packs/Microchip/ATmega_DFP/3.6.299/include -x c -g -gdwarf-2 -mmcu=atmega328pb -BC:/Users/adam/.mchp_packs/Microchip/ATmega_DFP/3.6.299/gcc/dev/atmega328pb -x c -c -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -o CMakeFiles\\CPE310_Simon_Says_Final_default_default_AVR_GCC_compile.dir\\5955b49095aa8e9eb8e075df7f7900b6\\cpe310_simon_says_final\\btn.c.o -c \"C:\\Users\\adam\\Desktop\\CPE 301 Final Project\\cpe310_simon_says_final\\btn.c\"",
+  "file": "C:/Users/adam/Desktop/CPE 301 Final Project/cpe310_simon_says_final/btn.c",
+  "output": "C:/Users/adam/Desktop/CPE 301 Final Project/cpe310_simon_says_final/_build/CPE310_Simon_Says_Final/default/CMakeFiles/CPE310_Simon_Says_Final_default_default_AVR_GCC_compile.dir/5955b49095aa8e9eb8e075df7f7900b6/cpe310_simon_says_final/btn.c.o"
+},
+{
+  "directory": "C:/Users/adam/Desktop/CPE 301 Final Project/cpe310_simon_says_final/_build/CPE310_Simon_Says_Final/default",
   "command": "C:\\Users\\adam\\.mplab\\app-finder\\apps\\avr-gcc\\v7.3.0\\avr8-gnu-toolchain-win32_x86_64\\bin\\avr-gcc.exe -D__ATmega328PB__ -Ddefault=default -IC:/Users/adam/.mchp_packs/Microchip/ATmega_DFP/3.6.299/include -x c -g -gdwarf-2 -mmcu=atmega328pb -BC:/Users/adam/.mchp_packs/Microchip/ATmega_DFP/3.6.299/gcc/dev/atmega328pb -x c -c -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -o CMakeFiles\\CPE310_Simon_Says_Final_default_default_AVR_GCC_compile.dir\\5955b49095aa8e9eb8e075df7f7900b6\\cpe310_simon_says_final\\i2c.c.o -c \"C:\\Users\\adam\\Desktop\\CPE 301 Final Project\\cpe310_simon_says_final\\i2c.c\"",
   "file": "C:/Users/adam/Desktop/CPE 301 Final Project/cpe310_simon_says_final/i2c.c",
   "output": "C:/Users/adam/Desktop/CPE 301 Final Project/cpe310_simon_says_final/_build/CPE310_Simon_Says_Final/default/CMakeFiles/CPE310_Simon_Says_Final_default_default_AVR_GCC_compile.dir/5955b49095aa8e9eb8e075df7f7900b6/cpe310_simon_says_final/i2c.c.o"

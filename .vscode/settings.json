@@ -4,5 +4,6 @@
         "embedded-debug",
         "gdb",
         "mplab-core-da"
-    ]
+    ],
+    "cmake.sourceDirectory": "./cmake/CPE310_Simon_Says_Final/default"
 }
