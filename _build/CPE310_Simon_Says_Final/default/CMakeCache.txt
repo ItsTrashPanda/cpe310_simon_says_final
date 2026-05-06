@@ -61,6 +61,10 @@ CMAKE_CXX_COMPILER_AR:FILEPATH=C:/Users/adam/.mplab/app-finder/apps/avr-gcc/v7.3
 // for the GCC compiler
 CMAKE_CXX_COMPILER_RANLIB:FILEPATH=C:/Users/adam/.mplab/app-finder/apps/avr-gcc/v7.3.0/avr8-gnu-toolchain-win32_x86_64/bin/avr-gcc-ranlib.exe
 
+//Tell CMake that the compiler works, but cannot be run during
+// the configuration stage
+CMAKE_CXX_COMPILER_WORKS:BOOL=YES
+
 //Flags used by the CXX compiler during all build types.
 CMAKE_CXX_FLAGS:STRING=
 
@@ -86,6 +90,10 @@ CMAKE_C_COMPILER_AR:FILEPATH=C:/Users/adam/.mplab/app-finder/apps/avr-gcc/v7.3.0
 //A wrapper around 'ranlib' adding the appropriate '--plugin' option
 // for the GCC compiler
 CMAKE_C_COMPILER_RANLIB:FILEPATH=C:/Users/adam/.mplab/app-finder/apps/avr-gcc/v7.3.0/avr8-gnu-toolchain-win32_x86_64/bin/avr-gcc-ranlib.exe
+
+//Tell CMake that the compiler works, but cannot be run during
+// the configuration stage
+CMAKE_C_COMPILER_WORKS:BOOL=YES
 
 //Flags used by the C compiler during all build types.
 CMAKE_C_FLAGS:STRING=

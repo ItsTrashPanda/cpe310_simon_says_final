@@ -9,9 +9,9 @@
 //Columns are on PORTD[4:7], rows are on PORTD[0:3]
 
 void initBtnMatrix() {
-    // Set PD4-PD7 as inputs for powering columns
+    // Set PD4-PD7 as inputs for columns
     BTN_DDR &= ~0xF0;
-    // Set PD0-PD3 as ouputs for reading rows
+    // Set PD0-PD3 as ouputs for rows
     BTN_DDR |= 0x0F;
     // Enable pull-up resistors on PD4-PD7
     BTN_PORT |= 0xF0;
@@ -31,7 +31,7 @@ void buttonPressed() {
 void debounce() {
 	// Wait and loop until get 2nd sample of key pressed
 	do {
-		_delay_ms(20);
+		_delay_ms(50);
 	} while ( (PIND & 0xF0) == 0xF0 );
 }
 
@@ -48,7 +48,7 @@ uint8_t identifyPressedKey() {
 	// Check each row till find pressed key
 	if (!found) {
 		// Ground row 0
-		BTN_PORT = 0x07;
+		BTN_PORT = 0xF7;
 		_delay_ms(20);
 		column = PIND & 0xF0;
 		
@@ -60,7 +60,7 @@ uint8_t identifyPressedKey() {
 	
 	if (!found) {
 		// Ground row 1
-		BTN_PORT = 0x0B;
+		BTN_PORT = 0xFB;
 		_delay_ms(20);
 		column = PIND & 0xF0;
 		
@@ -72,7 +72,7 @@ uint8_t identifyPressedKey() {
 
 	if (!found) {
 		// Ground row 2
-		BTN_PORT = 0x0D;
+		BTN_PORT = 0xFD;
 		_delay_ms(20);
 		column = PIND & 0xF0;
 		if (column != 0xF0) {
@@ -83,7 +83,7 @@ uint8_t identifyPressedKey() {
 
 	if (!found) {
 		// Ground row 3
-		BTN_PORT = 0x0E;
+		BTN_PORT = 0xFE;
 		_delay_ms(20);
 		column = PIND & 0xF0;
 		if (column != 0xF0) {
