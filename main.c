@@ -39,20 +39,7 @@ int main(){
     lcd_print((unsigned char *)"to start");
     //*/
 
-    
     initBtnMatrix();
-/*
-    unsigned char * temp = 'thisissomething';
-
-    while(1) {
-        runBtnMatrix();
-
-        lcd_clear();
-        sprintf(temp, "I: %d", triggered);
-        lcd_print(temp);
-        _delay_ms(50);
-    }
-    //*/
 
     while(1) {
         // Main game loop
