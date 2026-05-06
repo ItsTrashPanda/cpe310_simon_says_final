@@ -10,6 +10,7 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "spi.h"
 #include "lcd.h"
 #include "btn.h"
@@ -31,6 +32,10 @@ int main(){
     SPI_init();
     max7219_init();
     clear_matrix();
+
+    for(int i = 0; i < 16; i++) {
+        sequence[i] = rand() % 16;
+    }
 
     //*
     lcd_gotoxy(1,1);
@@ -114,10 +119,14 @@ int main(){
                     control = 'H';
                     break;
                 }
-                if(level != 16) {
+                if(level != 5) {
                     lcd_clear();
                     lcd_gotoxy(1,1);
                     lcd_print((unsigned char *)"You Passed!");
+                    lcd_gotoxy(1,2);
+                    unsigned char * temp = "Level 16";
+                    sprintf(temp, "Level: %d", level);
+                    lcd_print(temp);
                     _delay_ms(500);
                     level++;
                     control = 'D';
