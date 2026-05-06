@@ -1,5 +1,6 @@
 #define F_CPU 16000000UL
 #include "btn.h"
+#include "lcd.h"
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
@@ -7,44 +8,98 @@
 
 //Columns are on PORTD[4:7], rows are on PORTD[0:3]
 
-uint8_t poweredColumn;  // Currently Powered column
-uint8_t lastBtnPressed; // Index of which button was last pressed
-uint8_t btnPressed = 0; // Bool to indicate a button was pressed
-
 void initBtnMatrix() {
-    // Set PD4-PD7 as outputs for powering columns
-    BTN_DDR |= 0xF0;
-    // Set PD0-PD3 as inputs for reading rows
-    BTN_DDR &= ~0x0F;
-    // Enable pull-up resistors on PD0-PD3
-    BTN_PORT |= 0x0F;
+    // Set PD4-PD7 as inputs for powering columns
+    BTN_DDR &= ~0xF0;
+    // Set PD0-PD3 as ouputs for reading rows
+    BTN_DDR |= 0x0F;
+    // Enable pull-up resistors on PD4-PD7
+    BTN_PORT |= 0xF0;
 }
 
-void runBtnMatrix() {
-    // Cycle through columns 0-3
-    for (poweredColumn = 0; poweredColumn < 4; poweredColumn++) {
-        BTN_PORT = (BTN_PORT & 0x0F) & ~(1 << (poweredColumn));
-        _delay_ms(5);
-    }
+void buttonPressed() {
+	unsigned char anyKeyPressed;
+	
+	// Loop until a key is pressed
+	do {
+		// Ground all rows
+		BTN_PORT = 0x0 | (PIND & 0xF0);
+		anyKeyPressed = PIND & 0xF0;
+	} while (anyKeyPressed == 0xF0);
 }
 
-// Returns the button pressed as a number 0-15, or 255 if no button is pressed
-uint8_t buttonPressed() {
-    if (btnPressed) {
-        btnPressed = 0; // Reset flag
-        return lastBtnPressed;
-    }
-    return 255; // No button pressed
+void debounce() {
+	// Wait and loop until get 2nd sample of key pressed
+	do {
+		_delay_ms(20);
+	} while ( (PIND & 0xF0) == 0xF0 );
 }
 
- // Check which button is pressed and update poweredColumn accordingly
-ISR(PCINT2_vect) {
-    uint8_t rowState = BTN_PORT & 0x0F;
-    for (uint8_t row = 0; row < 4; row++) {
-        if (!(rowState & (1 << row))) {
-            lastBtnPressed = poweredColumn + 4*row;
-            btnPressed = 1;
-            break;
-        }
-    }
+uint8_t identifyPressedKey() {
+	unsigned char column, row; // Record column and row of pressed key
+	unsigned char found = 0;   // Set to 1 when pressed key found
+	
+	// Array to hold keypad values
+	uint8_t keypad[4][4] = {	{0, 1, 2, 3},
+	{4, 5, 6, 7},
+	{8, 9, 10, 11},
+	{12, 13, 14, 15}};
+
+	// Check each row till find pressed key
+	if (!found) {
+		// Ground row 0
+		BTN_PORT = 0x07;
+		_delay_ms(20);
+		column = PIND & 0xF0;
+		
+		if (column != 0xF0) {
+			row = 0;
+			found = 1;
+		}		
+	}
+	
+	if (!found) {
+		// Ground row 1
+		BTN_PORT = 0x0B;
+		_delay_ms(20);
+		column = PIND & 0xF0;
+		
+		if (column != 0xF0) {
+			row = 1;
+			found = 1;
+		}
+	}
+
+	if (!found) {
+		// Ground row 2
+		BTN_PORT = 0x0D;
+		_delay_ms(20);
+		column = PIND & 0xF0;
+		if (column != 0xF0) {
+			row = 2;
+			found = 1;
+		}
+	}
+
+	if (!found) {
+		// Ground row 3
+		BTN_PORT = 0x0E;
+		_delay_ms(20);
+		column = PIND & 0xF0;
+		if (column != 0xF0) {
+			row = 3;
+			found = 1;
+		}
+	}
+
+	// Decode column
+	switch (column) {
+		case 0xE0:		column = 0; break;
+		case 0xD0:		column = 1; break;
+		case 0xB0:		column = 2; break;
+		case 0x70:		column = 3; break;
+		default:		column = 3;
+	}
+	
+	return keypad[row][column];
 }

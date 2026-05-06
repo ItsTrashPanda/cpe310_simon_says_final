@@ -7,7 +7,8 @@
 #define BTN_PORT PORTD
 
 void initBtnMatrix();
-void runBtnMatrix();
-uint8_t buttonPressed();
+void debounce();
+void buttonPressed();
+uint8_t identifyPressedKey();
 
 #endif

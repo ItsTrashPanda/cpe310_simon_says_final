@@ -3,9 +3,10 @@
     "configurations": [
         {
             "name": "default",
-            "id": "conf1",
+            "id": "",
             "device": "ATmega328PB",
             "imagePath": "./out/CPE310_Simon_Says_Final/default.elf",
+            "toolProperties": "default-tool-base",
             "tool": "mEDBG",
             "packs": [
                 {
@@ -24,6 +25,14 @@
             "type": "toolchain",
             "provider": "microchip.toolchains:avr-gcc@7.3.0",
             "properties": {}
+        },
+        {
+            "name": "default-tool-base",
+            "type": "tool",
+            "properties": {
+                "communication.speed": "4",
+                "communication.interface": "isp"
+            }
         }
     ],
     "fileSets": [
@@ -33,7 +42,16 @@
                 {
                     "include": "**/*",
                     "exclude": "**/(_build|out|cmake|.vscode)/**/*"
-                }
+                },
+                "main.c",
+                "btn.h",
+                "i2c.h",
+                "i2c.c",
+                "lcd.h",
+                "lcd.c",
+                "spi.h",
+                "spi.c",
+                "btn.c"
             ]
         }
     ]
