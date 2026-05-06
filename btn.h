@@ -8,6 +8,7 @@
 
 void initBtnMatrix();
 void debounce();
+void buttonUnPressed();
 void buttonPressed();
 uint8_t identifyPressedKey();
 

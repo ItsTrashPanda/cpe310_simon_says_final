@@ -56,24 +56,21 @@ int main(){
 
     while(1) {
         // Main game loop
-        buttonPressed();
-        debounce();
-        pressed = identifyPressedKey();
+        if(control == 'H' || control == 'P') {
+            buttonUnPressed();
+            buttonPressed();
+            debounce();
+            pressed = identifyPressedKey();
+        }
         switch(control) {
             case 'H': { //Hold
-                if(pressed != 255) {
-                    level = 1;
-                    usrIndex = 0;
-                    //control = 'D';
-                    lcd_clear();
-                    lcd_gotoxy(1,1);
-                    //lcd_print((unsigned char *)("Pay Attention!"));
-                    unsigned char * temp = "thisissomething";
-                    lcd_clear();
-                    sprintf(temp, "I: %d", pressed);
-                    lcd_print(temp);
-                    _delay_ms(50);
-                }
+                level = 1;
+                usrIndex = 0;
+                control = 'D';
+                lcd_clear();
+                lcd_gotoxy(1,1);
+                lcd_print((unsigned char *)("Pay Attention!"));
+                _delay_ms(500);
                 break;
             }
             case 'D': { //Display
@@ -82,9 +79,21 @@ int main(){
                     uint8_t pixel = sequence[i];
                     uint8_t r = (pixel - pixel % 4) / 4;
                     uint8_t c = pixel % 4;
-                    set_led(r,c,1);
+                    set_led(2*r,2*c,1);
+                    _delay_ms(1);
+                    set_led(2*r,(2*c)+1,1);
+                    _delay_ms(1);
+                    set_led((2*r)+1,2*c,1);
+                    _delay_ms(1);
+                    set_led((2*r)+1,(2*c)+1,1);
                     _delay_ms(500);
-                    set_led(r,c,0);
+                    set_led(2*r,2*c,0);
+                    _delay_ms(1);
+                    set_led(2*r,(2*c)+1,0);
+                    _delay_ms(1);
+                    set_led((2*r)+1,2*c,0);
+                    _delay_ms(1);
+                    set_led((2*r)+1,(2*c)+1,0);
                 } 
                 control = 'P';
                 break;
@@ -93,9 +102,11 @@ int main(){
                 if(pressed != 255) {
                     pressedSequence[usrIndex] = pressed;
                     usrIndex++;
+
                 }
                 if(usrIndex == level) {
                     control = 'C';
+                    usrIndex = 0;
                 }
                 break;
             }

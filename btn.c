@@ -17,6 +17,17 @@ void initBtnMatrix() {
     BTN_PORT |= 0xF0;
 }
 
+void buttonUnPressed() {
+	unsigned char anyKeyPressed;
+	
+	// Loop until a key is unpressed
+	do {
+		// Ground all rows
+		BTN_PORT = 0x0 | (PIND & 0xF0);
+		anyKeyPressed = PIND & 0xF0;
+	} while (anyKeyPressed != 0xF0);
+}
+
 void buttonPressed() {
 	unsigned char anyKeyPressed;
 	
@@ -31,7 +42,7 @@ void buttonPressed() {
 void debounce() {
 	// Wait and loop until get 2nd sample of key pressed
 	do {
-		_delay_ms(50);
+		_delay_ms(20);
 	} while ( (PIND & 0xF0) == 0xF0 );
 }
 
@@ -48,8 +59,8 @@ uint8_t identifyPressedKey() {
 	// Check each row till find pressed key
 	if (!found) {
 		// Ground row 0
-		BTN_PORT = 0xF7;
-		_delay_ms(20);
+		BTN_PORT = 0xE;
+		_delay_ms(10);
 		column = PIND & 0xF0;
 		
 		if (column != 0xF0) {
@@ -60,8 +71,8 @@ uint8_t identifyPressedKey() {
 	
 	if (!found) {
 		// Ground row 1
-		BTN_PORT = 0xFB;
-		_delay_ms(20);
+		BTN_PORT = 0xD;
+		_delay_ms(10);
 		column = PIND & 0xF0;
 		
 		if (column != 0xF0) {
@@ -72,8 +83,8 @@ uint8_t identifyPressedKey() {
 
 	if (!found) {
 		// Ground row 2
-		BTN_PORT = 0xFD;
-		_delay_ms(20);
+		BTN_PORT = 0xB;
+		_delay_ms(10);
 		column = PIND & 0xF0;
 		if (column != 0xF0) {
 			row = 2;
@@ -83,8 +94,8 @@ uint8_t identifyPressedKey() {
 
 	if (!found) {
 		// Ground row 3
-		BTN_PORT = 0xFE;
-		_delay_ms(20);
+		BTN_PORT = 0x7;
+		_delay_ms(10);
 		column = PIND & 0xF0;
 		if (column != 0xF0) {
 			row = 3;
@@ -98,8 +109,12 @@ uint8_t identifyPressedKey() {
 		case 0xD0:		column = 1; break;
 		case 0xB0:		column = 2; break;
 		case 0x70:		column = 3; break;
-		default:		column = 3;
+		default:		column = 255;
 	}
 	
-	return keypad[row][column];
+    if(column != 255) {
+	    return keypad[row][column];
+    } else {
+        return identifyPressedKey();
+    }
 }
