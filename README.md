@@ -15,12 +15,12 @@
 # Flashing and Hardware setup
 Please have MPLab VSCode Extension Pack Installed
 
-The MPLab Project automatically configures CMake and can be used for both building and flashing the program
+The MPLab Project automatically configures CMake and can be used for both building and flashing the program.
 This Project has only been verified to work on the ATMega328PB. I/O modifications may be required to support other devices.
 
 | Pins | Function |
 |------|----------|
-| PORTD[0:7] | Button Matrix ROW[0:3]:COL[0:3] |
+| PD[0:7] | Button Matrix ROW[0:3]:COL[0:3] |
 | PB2 | SPI Chip Select |
 | PB3 | SPI MOSI (For LED Matrix) |
 | PB5 | SPI Clock |
